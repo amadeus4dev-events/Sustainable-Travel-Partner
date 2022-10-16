@@ -1,0 +1,31 @@
+{% extends 'socialize/bases/bases.html' %}
+
+
+{% load static %}
+
+{% block title %}Help Community Events in the Locality{% endblock %}
+
+{% block sites_css %}
+<link rel="stylesheet" href="{% static 'socialize/styles/all_socialize.css' %}">
+{% endblock %}
+
+{% block main_headings %}
+By engaging in community driven events, You are one among the millions who take part in the project zero carbon
+{% endblock %}
+
+{% block header_contents %}
+<p>We really thank you for your time towards this initiatives!!</p>
+{% endblock %}
+
+{% block body %}
+<section>
+     <h2>Engaging Events listed for you in CHENNAI</h2>
+     <ol>
+     {% for socialize_item in socialize %}
+       {% include 'socialize/includes/socializes-item.html' with title=socialize_item.title image=socialize_item.image.url  group_name=socialize_item.group_name slug=socialize_item.slug %}
+      {% endfor %}
+     </ol>
+     </section>
+{% endblock %}
+</body>
+</html>
